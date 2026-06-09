@@ -1,0 +1,11 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradAutoTest" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0.259336" stop-color="#FFDB6E"/>
+      <stop offset="1" stop-color="#FFBC5E"/>
+    </linearGradient>
+  </defs>
+  <path d="M20 4a16 16 0 1 0 0 32 16 16 0 0 0 0-32Zm0 2a14 14 0 1 1 0 28 14 14 0 0 1 0-28Z" fill="url(#gradAutoTest)"/>
+  <path d="M20 9a1 1 0 0 1 1 1v9.4l6 3.5a1 1 0 1 1-1 1.8l-6.5-3.8a1 1 0 0 1-.5-.9V10a1 1 0 0 1 1-1Z" fill="url(#gradAutoTest)"/>
+  <path d="M30.5 7.5 33 10l-2.5 2.5-1.4-1.5L30 10l-1-1 1.5-1.5ZM9.5 27.5 12 30l-2.5 2.5L8 31l1-1-1-1 1.5-1.5Z" fill="url(#gradAutoTest)"/>
+</svg>
