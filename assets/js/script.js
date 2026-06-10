@@ -538,3 +538,86 @@ serviceTexts.forEach((textEl) => {
     }
   });
 });
+
+
+// Testimonial text toggle (mobile: 200, desktop: 350)
+const MOBILE_TESTIMONIAL_BREAKPOINT = 767;
+const MOBILE_TESTIMONIAL_CHAR_LIMIT = 200;
+const DESKTOP_TESTIMONIAL_CHAR_LIMIT = 350;
+const recommendationCards = document.querySelectorAll(".recommendation-card");
+
+function truncateTextAtWord(text, limit) {
+  if (text.length <= limit) return text;
+  let cutIndex = text.lastIndexOf(" ", limit);
+  if (cutIndex < 1) cutIndex = limit;
+  return `${text.slice(0, cutIndex).trim()}...`;
+}
+
+function updateTestimonials() {
+  const isMobile = window.innerWidth <= MOBILE_TESTIMONIAL_BREAKPOINT;
+  const charLimit = isMobile
+    ? MOBILE_TESTIMONIAL_CHAR_LIMIT
+    : DESKTOP_TESTIMONIAL_CHAR_LIMIT;
+
+  recommendationCards.forEach((card) => {
+    const textNodes = card.querySelectorAll(
+      ".recommendation-text:not(.recommendation-preview)"
+    );
+    if (!textNodes.length) return;
+
+    if (!card.dataset.fullRecommendationText) {
+      card.dataset.fullRecommendationText = Array.from(textNodes)
+        .map((node) => node.textContent.trim())
+        .filter(Boolean)
+        .join("\n\n");
+    }
+
+    const fullText = card.dataset.fullRecommendationText;
+    const shouldTruncate = fullText.length > charLimit;
+
+    let previewText = card.querySelector(".recommendation-preview");
+    let toggleBtn = card.querySelector(".recommendation-toggle-btn");
+
+    textNodes.forEach((node) => {
+      node.style.display = "none";
+    });
+
+    if (!previewText) {
+      previewText = document.createElement("p");
+      previewText.className = "recommendation-text recommendation-preview";
+      card.appendChild(previewText);
+    }
+
+    previewText.style.display = "block";
+
+    if (!shouldTruncate) {
+      previewText.textContent = fullText;
+      if (toggleBtn) toggleBtn.remove();
+      card.dataset.recommendationExpanded = "false";
+      return;
+    }
+
+    if (!toggleBtn) {
+      toggleBtn = document.createElement("button");
+      toggleBtn.type = "button";
+      toggleBtn.className = "recommendation-toggle-btn";
+      toggleBtn.addEventListener("click", () => {
+        const expanded = card.dataset.recommendationExpanded === "true";
+        card.dataset.recommendationExpanded = expanded ? "false" : "true";
+        updateTestimonials();
+      });
+      card.appendChild(toggleBtn);
+    }
+
+    const expanded = card.dataset.recommendationExpanded === "true";
+    previewText.textContent = expanded
+      ? fullText
+      : truncateTextAtWord(fullText, charLimit);
+
+    toggleBtn.textContent = expanded ? "less" : "more";
+    toggleBtn.setAttribute("aria-expanded", expanded ? "true" : "false");
+  });
+}
+
+updateTestimonials();
+window.addEventListener("resize", updateTestimonials);

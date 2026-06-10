@@ -1523,6 +1523,27 @@ main {
 .recommendation-text:not(:last-child) {
   margin-bottom: 10px;
 }
+
+.recommendation-preview {
+  white-space: pre-line;
+}
+
+.recommendation-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 4px;
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  transition: var(--transition-1);
+}
+
+.recommendation-toggle-btn:hover,
+.recommendation-toggle-btn:focus-visible {
+  color: var(--vegas-gold);
+  text-decoration: underline;
+}
+
 /*-----------------------------------*\
   #CONTACT
 \*-----------------------------------*/
