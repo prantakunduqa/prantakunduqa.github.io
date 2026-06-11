@@ -203,7 +203,7 @@ if (contactForm) {
       // network call so the form still works visually during testing.
       const endpointReady =
         GOOGLE_SHEET_ENDPOINT &&
-        !GOOGLE_SHEET_ENDPOINT.includes("");
+        GOOGLE_SHEET_ENDPOINT.startsWith("https://script.google.com/");
 
       if (endpointReady) {
         // Send data to Google Sheet (Apps Script Web App).
