@@ -545,6 +545,7 @@ main {
   left: 0;
   width: 100%;
   background: hsla(240, 1%, 17%, 0.75);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid var(--jet);
   border-radius: 12px 12px 0 0;
@@ -561,19 +562,47 @@ main {
 }
 
 .navbar-link {
+  position: relative;
   color: var(--light-gray);
   font-size: var(--fs-8);
   padding: 20px 7px;
-  transition: color var(--transition-1);
+  transition: color var(--transition-1), transform var(--transition-1);
+  will-change: transform;
+}
+
+/* animated sliding underline indicator */
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background-image: var(--text-gradient-yellow);
+  transform: translateX(-50%);
+  transition: width var(--transition-2);
 }
 
 .navbar-link:hover,
 .navbar-link:focus {
-  color: var(--light-gray-70);
+  color: var(--orange-yellow-crayola);
+  transform: translateY(-2px);
+}
+
+.navbar-link:hover::after,
+.navbar-link:focus::after {
+  width: 60%;
 }
 
 .navbar-link.active {
   color: var(--orange-yellow-crayola);
+  text-shadow: 0 0 12px hsla(45, 100%, 72%, 0.45);
+}
+
+.navbar-link.active::after {
+  width: 70%;
+  box-shadow: 0 0 8px hsla(45, 100%, 72%, 0.55);
 }
 
 /*-----------------------------------*\
