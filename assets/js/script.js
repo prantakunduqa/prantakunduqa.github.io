@@ -9,10 +9,46 @@ const elementToggleFunc = function (elem) {
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
+// Theme toggle variables
+const themeToggleBtn = document.querySelector("[data-theme-toggle]");
+const themeLabel = document.querySelector("[data-theme-label]");
+const THEME_STORAGE_KEY = "portfolio-theme";
+
+function applyTheme(theme) {
+  const selectedTheme = theme === "light" ? "light" : "dark";
+  document.body.setAttribute("data-theme", selectedTheme);
+
+  if (themeLabel) {
+    themeLabel.textContent = selectedTheme === "light" ? "Night" : "Day";
+  }
+
+  if (themeToggleBtn) {
+    const nextThemeLabel = selectedTheme === "light" ? "Switch to night mode" : "Switch to day mode";
+    themeToggleBtn.setAttribute("aria-label", nextThemeLabel);
+  }
+}
+
+(function initializeTheme() {
+  const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+  applyTheme(storedTheme || (prefersLight ? "light" : "dark"));
+})();
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", function () {
+    const currentTheme = document.body.getAttribute("data-theme");
+    const nextTheme = currentTheme === "light" ? "dark" : "light";
+    applyTheme(nextTheme);
+    localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+  });
+}
+
 // Sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () {
-  elementToggleFunc(sidebar);
-});
+if (sidebarBtn) {
+  sidebarBtn.addEventListener("click", function () {
+    elementToggleFunc(sidebar);
+  });
+}
 
 // Testimonials variables
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");

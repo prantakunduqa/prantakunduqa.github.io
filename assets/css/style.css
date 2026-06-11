@@ -64,6 +64,9 @@
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
+  --modern-cyan: hsl(189, 92%, 56%);
+  --modern-cyan-soft: hsla(189, 92%, 56%, 0.24);
+  --theme-surface-glass: hsla(240, 1%, 17%, 0.75);
 
   /**
    * typography
@@ -166,6 +169,203 @@ html {
 
 body {
   background: var(--smoky-black);
+  color: var(--light-gray);
+  transition: background var(--transition-1), color var(--transition-1);
+}
+
+body[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body[data-theme="light"] {
+  color-scheme: light;
+  background: hsl(210, 35%, 97%);
+  --bg-gradient-onyx: linear-gradient(to bottom right, hsl(210, 32%, 96%) 3%, hsl(210, 26%, 90%) 97%);
+  --bg-gradient-jet: linear-gradient(to bottom right, hsla(210, 28%, 90%, 0.7) 0%, hsla(210, 32%, 96%, 0.95) 100%);
+  --border-gradient-onyx: linear-gradient(to bottom right, hsl(210, 20%, 78%) 0%, hsla(210, 20%, 78%, 0.12) 60%);
+  --text-gradient-yellow: linear-gradient(to right, hsl(196, 88%, 42%), hsl(176, 72%, 38%));
+  --jet: hsl(210, 20%, 80%);
+  --onyx: hsl(210, 22%, 92%);
+  --eerie-black-1: hsl(210, 30%, 98%);
+  --eerie-black-2: hsl(0, 0%, 100%);
+  --smoky-black: hsl(220, 24%, 12%);
+  --white-1: hsl(222, 42%, 15%);
+  --white-2: hsl(222, 32%, 19%);
+  --light-gray: hsl(220, 17%, 36%);
+  --light-gray-70: hsla(220, 17%, 36%, 0.72);
+  --modern-cyan: hsl(196, 88%, 42%);
+  --modern-cyan-soft: hsla(196, 88%, 42%, 0.2);
+  --theme-surface-glass: hsla(0, 0%, 100%, 0.85);
+}
+
+body[data-theme="light"] .navbar {
+  background: var(--theme-surface-glass);
+  border-color: hsl(210, 22%, 80%);
+  box-shadow: 0 12px 28px hsla(210, 30%, 35%, 0.12);
+}
+
+body[data-theme="light"] .social-list {
+  background: linear-gradient(130deg, hsla(196, 88%, 42%, 0.08), hsla(176, 72%, 38%, 0.04)), hsl(210, 33%, 97%);
+  border-color: hsla(196, 78%, 38%, 0.2);
+}
+
+body[data-theme="light"] .social-item .social-link {
+  color: hsl(220, 22%, 36%);
+  background: linear-gradient(145deg, hsl(210, 34%, 98%), hsl(210, 28%, 93%));
+  border-color: hsla(196, 78%, 38%, 0.2);
+  box-shadow: 0 8px 16px hsla(210, 32%, 48%, 0.12);
+}
+
+body[data-theme="light"] .project-card {
+  background: linear-gradient(155deg, hsl(210, 34%, 98%) 0%, hsl(210, 26%, 93%) 100%);
+  border-color: hsla(196, 78%, 38%, 0.26);
+  box-shadow: 0 14px 28px hsla(210, 30%, 35%, 0.12);
+}
+
+body[data-theme="light"] .project-card::before {
+  background: linear-gradient(155deg, hsl(0, 0%, 100%) 0%, hsl(210, 34%, 96%) 100%);
+}
+
+body[data-theme="light"] .project-img {
+  border-color: hsla(196, 78%, 38%, 0.26);
+}
+
+body[data-theme="light"] .project-img::after {
+  background: linear-gradient(to top, hsla(210, 18%, 12%, 0.4) 0%, hsla(210, 18%, 12%, 0) 58%);
+}
+
+body[data-theme="light"] .project-category {
+  color: hsl(196, 88%, 36%);
+  background: hsla(196, 88%, 42%, 0.12);
+  border-color: hsla(196, 78%, 38%, 0.28);
+}
+
+body[data-theme="light"] .project-tools {
+  border-top-color: hsla(196, 78%, 38%, 0.2);
+}
+
+body[data-theme="light"] .project-tools li {
+  color: hsl(220, 20%, 30%);
+  background: hsla(0, 0%, 100%, 0.9);
+  border-color: hsla(196, 78%, 38%, 0.24);
+}
+
+body[data-theme="light"] .project-card:hover .project-tools li {
+  color: hsl(196, 88%, 34%);
+  border-color: hsla(196, 88%, 42%, 0.35);
+  background: hsla(196, 88%, 42%, 0.12);
+}
+
+body[data-theme="light"] .recommendation-card {
+  background: linear-gradient(155deg, hsl(210, 34%, 98%) 0%, hsl(210, 26%, 93%) 100%);
+  box-shadow: 0 14px 26px hsla(210, 30%, 35%, 0.11);
+}
+
+body[data-theme="light"] .service-item {
+  background: radial-gradient(circle at 12% 10%, hsla(196, 88%, 42%, 0.14), transparent 45%),
+    linear-gradient(145deg, hsl(210, 32%, 98%), hsl(210, 26%, 94%));
+  border-color: hsla(196, 78%, 38%, 0.22);
+  box-shadow: 0 14px 24px hsla(210, 30%, 35%, 0.11);
+}
+
+body[data-theme="light"] .service-item::before {
+  background: linear-gradient(120deg, hsla(196, 88%, 42%, 0.06), transparent 45%),
+    linear-gradient(180deg, hsl(210, 30%, 99%), hsl(210, 24%, 95%));
+}
+
+body[data-theme="light"] .service-item-title,
+body[data-theme="light"] .service-item-text {
+  color: hsl(220, 24%, 18%);
+}
+
+body[data-theme="light"] .contact-form {
+  border-color: hsla(196, 78%, 38%, 0.24);
+  background: radial-gradient(circle at 88% 0%, hsla(196, 88%, 42%, 0.12), transparent 42%),
+    linear-gradient(155deg, hsl(210, 34%, 98%), hsl(210, 26%, 94%));
+  box-shadow: 0 16px 28px hsla(210, 30%, 35%, 0.12);
+}
+
+body[data-theme="light"] .contact-form::before {
+  background: linear-gradient(125deg, hsla(196, 88%, 42%, 0.08), transparent 40%);
+}
+
+body[data-theme="light"] .form-title {
+  color: hsl(220, 24%, 18%);
+}
+
+body[data-theme="light"] .form-input {
+  color: hsl(220, 24%, 18%);
+  border-color: hsla(196, 78%, 38%, 0.24);
+  background: linear-gradient(145deg, hsl(0, 0%, 100%), hsl(210, 30%, 96%));
+}
+
+body[data-theme="light"] .form-input::placeholder {
+  color: hsla(220, 20%, 28%, 0.6);
+}
+
+body[data-theme="light"] .form-input:focus {
+  border-color: hsla(196, 88%, 42%, 0.56);
+  box-shadow: 0 0 0 3px hsla(196, 88%, 42%, 0.14);
+  background: linear-gradient(145deg, hsl(0, 0%, 100%), hsl(210, 34%, 98%));
+}
+
+body[data-theme="light"] .recommendation-card {
+  border-color: hsla(196, 78%, 38%, 0.26);
+}
+
+body[data-theme="light"] .recommendation-avatar-box {
+  border-color: hsla(196, 78%, 38%, 0.4);
+}
+
+body[data-theme="light"] .doc-btn {
+  color: hsl(220, 24%, 18%);
+  background: linear-gradient(145deg, hsl(0, 0%, 100%), hsl(210, 30%, 95%));
+  border: 1px solid hsla(196, 78%, 38%, 0.24);
+  box-shadow: 0 8px 16px hsla(210, 30%, 35%, 0.12);
+}
+
+body[data-theme="light"] .doc-btn:hover,
+body[data-theme="light"] .doc-btn:focus-visible {
+  color: hsl(0, 0%, 100%);
+  border-color: hsla(196, 88%, 42%, 0.5);
+  background: linear-gradient(120deg, hsl(196, 88%, 42%), hsl(176, 72%, 38%));
+}
+
+body[data-theme="light"] .doc-btn::before {
+  opacity: 0;
+}
+
+body[data-theme="light"] .service-read-more-btn,
+body[data-theme="light"] .recommendation-toggle-btn {
+  color: hsl(196, 88%, 40%);
+}
+
+body[data-theme="light"] .service-read-more-btn:hover,
+body[data-theme="light"] .service-read-more-btn:focus-visible,
+body[data-theme="light"] .recommendation-toggle-btn:hover,
+body[data-theme="light"] .recommendation-toggle-btn:focus-visible {
+  color: hsl(176, 72%, 32%);
+}
+
+body[data-theme="light"] .navbar-link:hover,
+body[data-theme="light"] .navbar-link:focus,
+body[data-theme="light"] .navbar-link.active {
+  color: var(--modern-cyan);
+  text-shadow: none;
+}
+
+body[data-theme="light"] .navbar-link.active::after {
+  box-shadow: none;
+}
+
+body[data-theme="light"] .project-img-overlay {
+  color: hsl(0, 0%, 100%);
+  background: hsla(196, 88%, 42%, 0.85);
+  border-color: hsla(196, 88%, 42%, 0.55);
+}
+
+body[data-theme="light"] .filter-item button.active {
+  color: hsl(220, 24%, 12%);
 }
 
 /*-----------------------------------*\
@@ -568,7 +768,11 @@ main {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: hsla(240, 1%, 17%, 0.75);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  background: var(--theme-surface-glass);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid var(--jet);
@@ -577,12 +781,56 @@ main {
   z-index: 5;
 }
 
+
+.theme-toggle {
+  flex: 0 0 auto;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  border-radius: 10px;
+  color: var(--light-gray);
+  border: 1px solid hsla(45, 100%, 72%, 0.32);
+  background: linear-gradient(145deg, hsla(45, 100%, 72%, 0.16), hsla(35, 100%, 68%, 0.06));
+  transition: color var(--transition-1), border-color var(--transition-1), transform var(--transition-1), background var(--transition-1);
+}
+
+.theme-toggle .theme-icon {
+  font-size: 16px;
+}
+
+.theme-toggle span {
+  font-size: var(--fs-8);
+  font-weight: var(--fw-500);
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--orange-yellow-crayola);
+  border-color: hsla(45, 100%, 72%, 0.5);
+  transform: translateY(-1px);
+}
+
+body[data-theme="light"] .theme-toggle {
+  color: var(--white-2);
+  border-color: hsla(196, 78%, 38%, 0.3);
+  background: linear-gradient(145deg, hsla(196, 88%, 42%, 0.14), hsla(176, 72%, 38%, 0.08));
+}
+
+
+body[data-theme="dark"] .theme-icon-light,
+body[data-theme="light"] .theme-icon-dark {
+  display: none;
+}
+
 .navbar-list {
   display: flex;
+  flex: 1;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 6px;
 }
 
 .navbar-link {
@@ -637,6 +885,7 @@ main {
     border-radius: 18px;
     overflow: hidden;
     isolation: isolate;
+    padding: 6px 8px;
     background:
       linear-gradient(145deg, hsla(226, 36%, 16%, 0.92), hsla(242, 28%, 10%, 0.92)),
       linear-gradient(90deg, hsla(45, 100%, 72%, 0.12), transparent 55%);
@@ -644,6 +893,12 @@ main {
     box-shadow:
       0 14px 28px hsla(0, 0%, 0%, 0.34),
       inset 0 1px 0 hsla(0, 0%, 100%, 0.05);
+  }
+
+  body[data-theme="light"] .navbar {
+    background: linear-gradient(145deg, hsla(0, 0%, 100%, 0.94), hsla(210, 30%, 95%, 0.94));
+    border-color: hsla(196, 78%, 38%, 0.22);
+    box-shadow: 0 14px 24px hsla(210, 30%, 35%, 0.14);
   }
 
   .navbar::before {
@@ -659,10 +914,17 @@ main {
     flex-wrap: nowrap;
     justify-content: flex-start;
     gap: 6px;
-    padding: 6px 8px;
+    padding: 0 2px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+  }
+  .theme-toggle {
+    height: 32px;
+  }
+
+  .theme-toggle span {
+    display: none;
   }
 
   .navbar-list::-webkit-scrollbar {
@@ -1401,7 +1663,7 @@ main {
   flex-direction: column;
   height: 100%;
   background: linear-gradient(155deg, hsl(222, 28%, 16%) 0%, hsl(226, 24%, 11%) 100%);
-  border: 2px solid var(--modern-cyan);
+  border: 1px solid hsla(192, 70%, 64%, 0.32);
   border-radius: 16px;
   box-shadow: 0 14px 28px hsla(189, 92%, 56%, 0.12);
   overflow: hidden;
@@ -1430,7 +1692,7 @@ main {
   height: 180px;
   border-radius: 16px 16px 0 0;
   overflow: hidden;
-  border: 2px solid var(--modern-cyan);
+  border: 1px solid hsla(192, 70%, 64%, 0.32);
   box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, 0.06);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1667,7 +1929,7 @@ main {
 .recommendation-card {
   position: relative;
   background: linear-gradient(180deg, hsla(210, 40%, 20%, 0.5) 0%, hsla(240, 2%, 12%, 0.9) 100%);
-  border: 1px solid hsla(213, 67%, 56%, 0.35);
+  border: 1px solid hsla(192, 70%, 64%, 0.32);
   border-radius: 16px;
   padding: 18px;
   box-shadow: var(--shadow-2);
@@ -1685,7 +1947,7 @@ main {
   height: 56px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid hsla(213, 67%, 56%, 0.7);
+  border: 1px solid hsla(192, 70%, 64%, 0.46);
   flex-shrink: 0;
 }
 
@@ -2932,6 +3194,68 @@ textarea.form-input::-webkit-resizer {
 
 .portfolio-modal-btn.code-btn:hover {
   color: var(--white-2);
+}
+
+body[data-theme="light"] .portfolio-modal-content {
+  background: linear-gradient(155deg, hsl(0, 0%, 100%), hsl(210, 30%, 95%));
+  border-color: hsla(196, 78%, 38%, 0.26);
+  box-shadow: 0 18px 36px hsla(210, 30%, 35%, 0.16);
+}
+
+body[data-theme="light"] .portfolio-modal-banner::after {
+  background: linear-gradient(to top, hsla(210, 18%, 12%, 0.45) 0%, hsla(210, 18%, 12%, 0) 60%);
+}
+
+body[data-theme="light"] .close-portfolio-modal {
+  color: hsl(220, 24%, 18%);
+  background: hsla(0, 0%, 100%, 0.92);
+  border-color: hsla(196, 78%, 38%, 0.32);
+}
+
+body[data-theme="light"] .close-portfolio-modal:hover,
+body[data-theme="light"] .close-portfolio-modal:focus-visible {
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(120deg, hsl(196, 88%, 42%), hsl(176, 72%, 38%));
+  border-color: hsla(196, 88%, 42%, 0.55);
+}
+
+body[data-theme="light"] .portfolio-modal-title {
+  color: hsl(220, 24%, 16%);
+}
+
+body[data-theme="light"] .portfolio-modal-details {
+  color: hsl(220, 17%, 30%);
+}
+
+body[data-theme="light"] .portfolio-modal-stack-title {
+  color: hsl(220, 18%, 40%);
+}
+
+body[data-theme="light"] .portfolio-tech-item {
+  color: hsl(196, 88%, 36%);
+  background: hsl(0, 0%, 100%);
+  border-color: hsla(196, 78%, 38%, 0.28);
+}
+
+body[data-theme="light"] .portfolio-modal-btn.code-btn {
+  color: hsl(220, 24%, 16%);
+  background: linear-gradient(145deg, hsl(0, 0%, 100%), hsl(210, 30%, 95%));
+  border: 1px solid hsla(196, 78%, 38%, 0.28);
+}
+
+body[data-theme="light"] .portfolio-modal-btn.code-btn::before {
+  display: none;
+}
+
+body[data-theme="light"] .portfolio-modal-btn.code-btn:hover {
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(120deg, hsl(196, 88%, 42%), hsl(176, 72%, 38%));
+  border-color: hsla(196, 88%, 42%, 0.5);
+}
+
+body[data-theme="light"] .portfolio-modal-btn.live-demo-btn {
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(120deg, hsl(196, 88%, 42%), hsl(176, 72%, 38%));
 }
 
 /* Responsive styles */
