@@ -266,25 +266,30 @@ document.body.appendChild(portfolioModalOverlay);
 // Portfolio modal content
 portfolioModalOverlay.innerHTML = `
   <div class="portfolio-modal-content">
-    <div class="portfolio-modal-header">
-      <h3 class="portfolio-modal-title">Project Title</h3>
-      <span class="portfolio-modal-category">Category</span>
-      <button class="close-portfolio-modal">
-        <ion-icon name="close-outline"></ion-icon>
-      </button>
-    </div>
-    <div class="portfolio-modal-body">
+    <button class="close-portfolio-modal" aria-label="Close">
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+    <figure class="portfolio-modal-banner">
       <img src="" alt="Project Image" class="portfolio-modal-image">
-      <div class="portfolio-modal-details">
-        <p>Project details will appear here. This is a detailed description of the project, including the technologies used and the challenges overcome during development.</p>
+      <span class="portfolio-modal-category">Category</span>
+    </figure>
+    <div class="portfolio-modal-body">
+      <h3 class="portfolio-modal-title">Project Title</h3>
+      <p class="portfolio-modal-details">Project details will appear here.</p>
+      <div class="portfolio-modal-stack">
+        <h4 class="portfolio-modal-stack-title">Tech Stack</h4>
         <div class="portfolio-modal-tech"></div>
       </div>
     </div>
     <div class="portfolio-modal-footer">
-      <button class="portfolio-modal-btn live-demo-btn">
+      <a class="portfolio-modal-btn code-btn" target="_blank" rel="noopener">
+        <ion-icon name="logo-github"></ion-icon>
+        View Code
+      </a>
+      <a class="portfolio-modal-btn live-demo-btn" target="_blank" rel="noopener">
         <ion-icon name="globe-outline"></ion-icon>
-        View Live
-      </button>
+        Live Site
+      </a>
     </div>
   </div>
 `;
@@ -292,116 +297,142 @@ portfolioModalOverlay.innerHTML = `
 // Portfolio data
 const portfolioData = {
   1: {
-    title: "Finance Dashboard",
-    category: "Web Development",
-    image: "./assets/images/project-1.jpg",
+    title: "Acquire Angel",
+    category: "Manual Test",
+    image: "./assets/images/acquireangel.com.png",
     details:
-      "A comprehensive financial dashboard that provides real-time analytics and visualization of financial data. This project involved creating interactive charts, transaction history tracking, and budget forecasting tools. The dashboard helps users manage their finances effectively with intuitive UI and powerful features.",
-    technologies: [
-      "React",
-      "Redux",
-      "Chart.js",
-      "Node.js",
-      "Express",
-      "MongoDB",
-    ],
-    liveLink: "https://www.reactbd.com/projects",
+      "Manual QA testing of a business acquisition platform ensuring UI consistency, functional stability, responsiveness, and basic security compliance across devices.",
+    stackTitle: "Deliverables",
+    technologies: ["Excel", "Test Case", "Bug Report"],
+    liveLink: "https://www.acquireangel.com/",
+    codeLink:
+      "https://github.com/prantakunduqa/Acquireangel.com_SQA_Manual_Testing_Project",
   },
   2: {
-    title: "Orizon Platform",
-    category: "Web Development",
-    image: "./assets/images/project-2.png",
+    title: "Nexchar",
+    category: "Manual Test",
+    image: "./assets/images/nexchar.com.png",
     details:
-      "A full-featured e-commerce platform with product listings, shopping cart, user authentication, and payment processing. The platform includes an admin dashboard for inventory management, order processing, and customer insights. Built with a focus on performance and security.",
-    technologies: ["Vue.js", "Vuex", "Firebase", "Stripe API", "Tailwind CSS"],
-    liveLink: "https://www.reactbd.com/projects",
+      "Manual QA testing of a cloud-based POS and eCommerce platform, covering UI/UX consistency, core transaction flows, responsiveness, and functional stability across web and mobile environments.",
+    stackTitle: "Deliverables",
+    technologies: ["Excel", "Test Case", "Bug Report"],
+    liveLink: "https://www.nexchar.com/",
+    codeLink:
+      "https://github.com/prantakunduqa/Nexchar.com_SQA_Manual_Testing_Project",
   },
   3: {
-    title: "Fundo Design",
-    category: "Web Design",
-    image: "./assets/images/project-3.jpg",
+    title: "Nexchar",
+    category: "Automation · Web",
+    image: "./assets/images/nexchar.com.png",
     details:
-      "A modern UI design for a travel application that helps users discover and book travel experiences. The design focuses on intuitive navigation, beautiful imagery, and seamless user experience. Created with a mobile-first approach to ensure excellent performance on all devices.",
-    technologies: [
-      "Figma",
-      "Adobe XD",
-      "UI/UX Design",
-      "Prototyping",
-      "User Testing",
-    ],
-    liveLink: "https://www.reactbd.com/projects",
+      "Designed and implemented automated test coverage for a cloud-based POS platform, focusing on critical user flows, regression stability, and cross-browser validation. Built scalable automation suites to improve test efficiency, reduce manual effort, and ensure consistent quality across frequent releases.",
+    stackTitle: "Tech Stack",
+    technologies: ["Selenium", "Java", "Allure", "JUnit"],
+    liveLink: "https://www.nexchar.com/",
+    codeLink: "https://github.com/prantakunduqa/Nexchar_Automation",
   },
   4: {
-    title: "Brawlhalla App",
-    category: "Applications",
-    image: "./assets/images/project-4.png",
+    title: "Mobile Calculator",
+    category: "Automation · Mobile",
+    image: "./assets/images/calculator.png",
     details:
-      "A productivity application that helps users manage tasks, set deadlines, and track progress. Features include project organization, team collaboration, time tracking, and notifications. The app syncs across all devices for seamless task management anywhere.",
-    technologies: [
-      "React Native",
-      "Redux",
-      "Firebase",
-      "Push Notifications",
-      "Jest Testing",
-    ],
-    liveLink: "https://www.reactbd.com/projects",
+      "Developed and executed automated test scripts for a mobile calculator application, validating core arithmetic operations, UI responsiveness, and input handling across different mobile devices. Ensured accuracy, stability, and regression coverage through repeatable automation suites.",
+    stackTitle: "Tech Stack",
+    technologies: ["Appium", "Selenium", "Java", "Allure", "JUnit"],
+    liveLink: "",
+    codeLink:
+      "https://github.com/prantakunduqa/Appium_Practice_Mobile_Automation",
   },
   5: {
-    title: "DSM Design System",
-    category: "Web Design",
-    image: "./assets/images/project-5.png",
+    title: "Flickr",
+    category: "Automation · Mobile",
+    image: "./assets/images/flicker.com.png",
     details:
-      "A comprehensive design system for enterprise applications. Created to ensure consistency across multiple products and platforms. Includes a component library, design guidelines, and accessibility standards.",
-    technologies: [
-      "Figma",
-      "Storybook",
-      "Design Tokens",
-      "Accessibility",
-      "Component Library",
-    ],
-    liveLink: "https://www.reactbd.com/projects",
+      "Implemented automated test coverage for the Flickr mobile application, focusing on core user flows such as login, media browsing, upload interactions, and profile management. Ensured cross-device stability, UI responsiveness, and regression reliability through scalable automation scripts.",
+    stackTitle: "Tech Stack",
+    technologies: ["Appium", "Selenium", "Java", "Allure", "TestNG", "POM"],
+    liveLink: "",
+    codeLink: "https://github.com/prantakunduqa/Java_Appium_POM_Flicker.com",
   },
   6: {
-    title: "MetaSpark Platform",
-    category: "Web Development",
-    image: "./assets/images/project-6.png",
+    title: "Time",
+    category: "Automation · Web",
+    image: "./assets/images/time.com.png",
     details:
-      "A social media analytics platform that helps businesses track engagement, monitor trends, and analyze competitor performance. Features include sentiment analysis, influencer identification, and campaign tracking.",
-    technologies: ["Angular", "Python", "Django", "PostgreSQL", "D3.js"],
-    liveLink: "https://www.reactbd.com/projects",
+      "Developed automated test coverage for a high-traffic news and media website, validating core user journeys such as article navigation, homepage rendering, search functionality, and responsive UI behavior. Ensured cross-browser stability, regression reliability, and consistent content delivery through scalable automation scripts.",
+    stackTitle: "Tech Stack",
+    technologies: ["Java", "Cucumber", "Selenium", "Allure", "TestNG", "POM"],
+    liveLink: "https://time.com/",
+    codeLink:
+      "https://github.com/prantakunduqa/Selenium-Cucumber-Gherkin-Java-Time.com",
   },
   7: {
-    title: "Summary Tool",
-    category: "Web Development",
-    image: "./assets/images/project-7.png",
+    title: "Kabum Ecommerce",
+    category: "Automation · Web",
+    image: "./assets/images/kabum.jpeg",
     details:
-      "An AI-powered text summarization tool that processes large documents and extracts key information. The tool uses natural language processing to identify important concepts and generate concise summaries while preserving the original meaning.",
-    technologies: ["React", "Node.js", "NLP", "TensorFlow.js", "Material UI"],
-    liveLink: "https://www.reactbd.com/projects",
+      "Developed and maintained automated test suites for a large-scale e-commerce platform, covering critical user journeys such as product search, catalog browsing, cart management, checkout, and order processing. Ensured application stability, regression coverage, and cross-browser compatibility to support frequent releases and a seamless shopping experience.",
+    stackTitle: "Tech Stack",
+    technologies: ["Java", "Cucumber", "Selenium", "Allure", "TestNG", "POM"],
+    liveLink: "https://www.kabum.com.br/",
+    codeLink:
+      "https://github.com/prantakunduqa/Kabum_E-commmerce_Java_Cucumber",
   },
   8: {
-    title: "Task Manager",
-    category: "Applications",
-    image: "./assets/images/project-8.jpg",
+    title: "Carib Farm",
+    category: "Automation · Mobile",
+    image: "./assets/images/caribfarm.png.webp",
     details:
-      "A cross-platform task management application with cloud synchronization, team collaboration features, and productivity analytics. Includes calendar integration, reminders, and progress tracking for personal and professional projects.",
-    technologies: [
-      "Flutter",
-      "Firebase",
-      "Google Calendar API",
-      "Bloc Pattern",
-      "Material Design",
-    ],
-    liveLink: "https://www.reactbd.com/projects",
+      "Implemented automated testing for a mobile application focused on agricultural and farm management operations. Automated critical user flows including authentication, data entry, inventory tracking, and dashboard interactions, ensuring application stability, usability, and reliable performance across Android and iOS devices.",
+    stackTitle: "Tech Stack",
+    technologies: ["Java", "Appium", "Selenium", "Allure", "TestNG", "POM"],
+    liveLink: "",
+    codeLink: "https://github.com/prantakunduqa/Carib_Farm_Java_Appium_POM",
   },
   9: {
-    title: "Arrival Platform",
-    category: "Web Development",
-    image: "./assets/images/project-9.png",
+    title: "Demo QA",
+    category: "Automation · Web",
+    image: "./assets/images/demoqa.png",
     details:
-      "A logistics and delivery management platform that optimizes routes, tracks shipments in real-time, and provides analytics for fleet management. Built for logistics companies to improve operational efficiency and customer satisfaction.",
-    technologies: ["Vue.js", "Node.js", "MongoDB", "Mapbox API", "Socket.io"],
-    liveLink: "https://www.reactbd.com/projects",
+      "Developed automated test scripts for a web-based demo application, covering forms, web tables, alerts, widgets, and user interactions. Implemented scalable UI automation to validate functionality, improve regression efficiency, and ensure consistent behavior across multiple browsers and test environments.",
+    stackTitle: "Tech Stack",
+    technologies: ["JavaScript", "Cypress", "Allure", "Mocha-Chai"],
+    liveLink: "https://demoqa.com/",
+    codeLink: "https://github.com/prantakunduqa/DemoQA_Cypress_POM",
+  },
+  10: {
+    title: "MooCommerce",
+    category: "Automation · Web",
+    image: "./assets/images/moocommerce.png",
+    details:
+      "Built and executed automated test suites for an online fashion e-commerce platform, covering product discovery, filtering, cart management, checkout workflows, user account features, and order processing. Ensured regression stability, cross-browser compatibility, and a seamless customer shopping experience through continuous automated validation.",
+    stackTitle: "Tech Stack",
+    technologies: ["JavaScript", "Cypress", "Allure", "Mocha-Chai"],
+    liveLink: "",
+    codeLink: "https://github.com/prantakunduqa/Moocommerce_Cypress_POM",
+  },
+  11: {
+    title: "Tribel",
+    category: "Automation · Web",
+    image: "./assets/images/tribel.jpg",
+    details:
+      "Designed and maintained automated test coverage for a social media platform, validating key user journeys including authentication, profile management, content creation, social interactions, notifications, and feed functionality. Improved release quality through regression automation, cross-platform validation, and continuous testing practices.",
+    stackTitle: "Tech Stack",
+    technologies: ["Java", "Cucumber", "Selenium", "Allure", "TestNG", "POM"],
+    liveLink: "https://www.tribel.com/",
+    codeLink: "https://github.com/prantakunduqa/Tribel_BDD_Selenium_Cucumber",
+  },
+  12: {
+    title: "Weather API",
+    category: "API Test",
+    image: "./assets/images/res-assued.png",
+    details:
+      "Designed and executed automated API and UI test coverage for the Weatherbit weather data platform, validating core endpoints including current weather, forecasts, and historical data APIs. Ensured response accuracy, schema validation, performance reliability, and integration stability across multiple environments for weather-driven applications.",
+    stackTitle: "Tech Stack",
+    technologies: ["Java", "Rest Assured", "POM"],
+    liveLink: "https://www.weatherbit.io/",
+    codeLink:
+      "https://github.com/prantakunduqa/RestAssured_API_Testing_api.weatherbit.io",
   },
 };
 
@@ -416,12 +447,16 @@ const portfolioModalImage = portfolioModalOverlay.querySelector(
   ".portfolio-modal-image"
 );
 const portfolioModalDetails = portfolioModalOverlay.querySelector(
-  ".portfolio-modal-details p"
+  ".portfolio-modal-details"
+);
+const portfolioModalStackTitle = portfolioModalOverlay.querySelector(
+  ".portfolio-modal-stack-title"
 );
 const portfolioModalTech = portfolioModalOverlay.querySelector(
   ".portfolio-modal-tech"
 );
 const liveDemoBtn = portfolioModalOverlay.querySelector(".live-demo-btn");
+const codeBtn = portfolioModalOverlay.querySelector(".code-btn");
 const closePortfolioModalBtn = portfolioModalOverlay.querySelector(
   ".close-portfolio-modal"
 );
@@ -436,6 +471,7 @@ function openPortfolioModal(projectId) {
     portfolioModalImage.src = project.image;
     portfolioModalImage.alt = project.title;
     portfolioModalDetails.textContent = project.details;
+    portfolioModalStackTitle.textContent = project.stackTitle || "Tech Stack";
 
     // Clear and add technologies
     portfolioModalTech.innerHTML = "";
@@ -446,10 +482,27 @@ function openPortfolioModal(projectId) {
       portfolioModalTech.appendChild(techItem);
     });
 
-    // Set live demo button
-    liveDemoBtn.onclick = function () {
-      window.open(project.liveLink, "_blank");
-    };
+    // Set code (GitHub) button
+    if (project.codeLink) {
+      codeBtn.href = project.codeLink;
+      codeBtn.style.display = "";
+      const isManual = (project.category || "")
+        .toLowerCase()
+        .includes("manual");
+      codeBtn.innerHTML = isManual
+        ? '<ion-icon name="folder-open-outline"></ion-icon> Project View'
+        : '<ion-icon name="logo-github"></ion-icon> View Code';
+    } else {
+      codeBtn.style.display = "none";
+    }
+
+    // Set live site button (only when a public URL exists)
+    if (project.liveLink) {
+      liveDemoBtn.href = project.liveLink;
+      liveDemoBtn.style.display = "";
+    } else {
+      liveDemoBtn.style.display = "none";
+    }
 
     // Show modal with animation
     portfolioModalOverlay.classList.add("active");
