@@ -406,6 +406,13 @@ body[data-theme="light"] .certification-card {
   box-shadow: 0 12px 24px hsla(210, 30%, 35%, 0.11);
 }
 
+body[data-theme="light"] .certification-card:hover,
+body[data-theme="light"] .certification-card:focus-visible {
+  background: linear-gradient(155deg, hsl(0, 0%, 100%) 0%, hsl(210, 34%, 96%) 100%);
+  border-color: hsla(196, 88%, 42%, 0.44);
+  box-shadow: 0 20px 34px hsla(210, 30%, 35%, 0.16);
+}
+
 body[data-theme="light"] .certification-card::before {
   background: linear-gradient(125deg, hsla(196, 88%, 42%, 0.12), transparent 46%);
 }
@@ -1744,6 +1751,22 @@ body[data-theme="light"] .resume .skills-item {
   border-radius: inherit;
 }
 
+.portfolio,
+.certifications {
+  background:
+    radial-gradient(circle at 12% -20%, hsla(45, 100%, 72%, 0.1), transparent 52%),
+    linear-gradient(145deg, hsl(240, 3%, 19%), hsl(240, 2%, 12%));
+  border-color: hsla(45, 28%, 42%, 0.34);
+}
+
+body[data-theme="light"] .portfolio,
+body[data-theme="light"] .certifications {
+  background:
+    radial-gradient(circle at 12% -20%, hsla(196, 88%, 42%, 0.12), transparent 52%),
+    linear-gradient(145deg, hsl(210, 34%, 98%), hsl(210, 26%, 94%));
+  border-color: hsla(196, 78%, 38%, 0.24);
+}
+
 /*-----------------------------------*\
   #PORTFOLIO
 \*-----------------------------------*/
@@ -1847,8 +1870,7 @@ body[data-theme="light"] .resume .skills-item {
   box-shadow: 0 14px 28px hsla(189, 92%, 56%, 0.12);
   overflow: hidden;
   z-index: 1;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.3s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
 .project-card::before {
@@ -1860,9 +1882,11 @@ body[data-theme="light"] .resume .skills-item {
   z-index: -1;
 }
 
-.project-card:hover {
+.project-card:hover,
+.project-card:focus-visible {
   transform: translateY(-6px);
-  box-shadow: 0 18px 36px hsla(189, 92%, 56%, 0.2);
+  border-color: hsla(45, 100%, 72%, 0.58);
+  box-shadow: 0 20px 34px hsla(0, 0%, 0%, 0.28);
 }
 
 .project-img {
@@ -1895,13 +1919,15 @@ body[data-theme="light"] .resume .skills-item {
   transition: transform 0.5s ease;
 }
 
-.project-card:hover .project-img {
-  border-color: hsl(189, 92%, 66%);
-  box-shadow: 0 0 0 1px hsla(189, 92%, 66%, 0.35), 0 12px 24px hsla(189, 92%, 56%, 0.2);
+.project-card:hover .project-img,
+.project-card:focus-visible .project-img {
+  border-color: hsla(45, 100%, 72%, 0.45);
+  box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, 0.06);
 }
 
-.project-card:hover .project-img img {
-  transform: scale(1.08);
+.project-card:hover .project-img img,
+.project-card:focus-visible .project-img img {
+  transform: scale(1.06);
 }
 
 .project-img-overlay {
@@ -1924,7 +1950,8 @@ body[data-theme="light"] .resume .skills-item {
   transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
 }
 
-.project-card:hover .project-img-overlay {
+.project-card:hover .project-img-overlay,
+.project-card:focus-visible .project-img-overlay {
   opacity: 1;
   transform: scale(1);
 }
@@ -1993,7 +2020,8 @@ body[data-theme="light"] .resume .skills-item {
   transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
-.project-card:hover .project-tools li {
+.project-card:hover .project-tools li,
+.project-card:focus-visible .project-tools li {
   color: var(--orange-yellow-crayola);
   border-color: hsla(45, 100%, 72%, 0.3);
   background: hsla(45, 100%, 72%, 0.08);
@@ -2220,6 +2248,20 @@ body[data-theme="light"] .resume .skills-item {
   text-decoration: underline;
 }
 
+article.certifications {
+  background:
+    radial-gradient(circle at 12% -20%, hsla(45, 100%, 72%, 0.1), transparent 52%),
+    linear-gradient(145deg, hsl(240, 3%, 19%), hsl(240, 2%, 12%));
+  border-color: hsla(45, 28%, 42%, 0.34);
+}
+
+body[data-theme="light"] article.certifications {
+  background:
+    radial-gradient(circle at 12% -20%, hsla(196, 88%, 42%, 0.12), transparent 52%),
+    linear-gradient(145deg, hsl(210, 34%, 98%), hsl(210, 26%, 94%));
+  border-color: hsla(196, 78%, 38%, 0.24);
+}
+
 /*-----------------------------------*\
   #CERTIFICATIONS
 \*-----------------------------------*/
@@ -2249,7 +2291,7 @@ body[data-theme="light"] .resume .skills-item {
   background: linear-gradient(160deg, hsla(240, 4%, 18%, 0.9), hsla(240, 3%, 12%, 0.96));
   box-shadow: var(--shadow-2);
   overflow: hidden;
-  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
 }
 
 .certification-card::before {
@@ -2257,6 +2299,8 @@ body[data-theme="light"] .resume .skills-item {
   position: absolute;
   inset: 0;
   background: linear-gradient(125deg, hsla(45, 100%, 72%, 0.14), transparent 48%);
+  opacity: 0.78;
+  transition: opacity 0.28s ease;
   pointer-events: none;
 }
 
@@ -2264,7 +2308,13 @@ body[data-theme="light"] .resume .skills-item {
 .certification-card:focus-visible {
   transform: translateY(-6px);
   border-color: hsla(45, 100%, 72%, 0.58);
+  background: linear-gradient(160deg, hsla(240, 4%, 20%, 0.94), hsla(240, 3%, 14%, 0.98));
   box-shadow: 0 20px 34px hsla(0, 0%, 0%, 0.28);
+}
+
+.certification-card:hover::before,
+.certification-card:focus-visible::before {
+  opacity: 1;
 }
 
 .certification-image-wrap {
@@ -2286,22 +2336,24 @@ body[data-theme="light"] .resume .skills-item {
 }
 
 .certification-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  display: grid;
+  gap: 8px;
   padding: 14px 14px 16px;
 }
 
 .certification-title {
   color: var(--white-2);
-  font-size: var(--fs-6);
+  font-size: 13px;
   font-weight: var(--fw-600);
-  line-height: 1.35;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .certification-chip {
-  flex-shrink: 0;
+  width: max-content;
+  max-width: 100%;
   color: var(--orange-yellow-crayola);
   font-size: 10px;
   letter-spacing: 0.4px;
@@ -2310,6 +2362,9 @@ body[data-theme="light"] .resume .skills-item {
   border-radius: 999px;
   background: hsla(45, 100%, 72%, 0.1);
   padding: 6px 9px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /*-----------------------------------*\
