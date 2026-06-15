@@ -1,9 +1,6 @@
-# John Doe vCard - Personal portfolio
+# Pranta Kundu vCard - Personal portfolio
 
-[![Twitter Follow](https://img.shields.io/twitter/follow/codewithsadee_?style=social)](https://x.com/NoorMoh74531005)
-[![YouTube Video Views](https://img.shields.io/youtube/views/SoxmIlgf2zM?style=social)](https://www.youtube.com/@reactjsBD)
-
-elcome to vCard, a premium, fully responsive personal portfolio template designed to showcase your skills, projects, and professional journey. Built with HTML, CSS, and JavaScript, vCard is perfect for software developers, designers, freelancers, and anyone looking to create a stunning online presence. With a sleek design, light and dark theme support, and compatibility across all devices, vCard helps you stand out in a professional and modern way.
+Welcome to vCard, a premium, fully responsive personal portfolio template designed to showcase your skills, projects, and professional journey. Built with HTML, CSS, and JavaScript, vCard is perfect for software developers, designers, freelancers, and anyone looking to create a stunning online presence. With a sleek design, light and dark theme support, and compatibility across all devices, vCard helps you stand out in a professional and modern way.
 
 ## Why Choose vCard?
 
