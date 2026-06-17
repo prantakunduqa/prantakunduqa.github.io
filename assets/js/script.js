@@ -193,6 +193,20 @@ if (availabilityStatus) {
   });
 }
 
+// Make the profile avatar and name redirect to the About page when clicked
+const profileTriggers = document.querySelectorAll(".avatar-box img, .sidebar-info .name");
+profileTriggers.forEach(function (trigger) {
+  trigger.style.cursor = "pointer";
+  trigger.addEventListener("click", function () {
+    for (let j = 0; j < navigationLinks.length; j++) {
+      if (navigationLinks[j].textContent.trim().toLowerCase() === "about") {
+        navigationLinks[j].click();
+        break;
+      }
+    }
+  });
+});
+
 // Toast notification function
 function showToast(message, isError = false) {
   // Create toast container if it doesn't exist
