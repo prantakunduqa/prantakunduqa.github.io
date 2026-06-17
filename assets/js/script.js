@@ -177,6 +177,19 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
+// Make the availability status redirect to the Contact page when clicked
+const availabilityStatus = document.querySelector(".availability-status");
+if (availabilityStatus) {
+  availabilityStatus.addEventListener("click", function () {
+    for (let j = 0; j < navigationLinks.length; j++) {
+      if (navigationLinks[j].textContent.trim().toLowerCase() === "contact") {
+        navigationLinks[j].click();
+        break;
+      }
+    }
+  });
+}
+
 // Toast notification function
 function showToast(message, isError = false) {
   // Create toast container if it doesn't exist

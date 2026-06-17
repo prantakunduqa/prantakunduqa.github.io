@@ -736,6 +736,7 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
   padding: 3px 9px 3px 8px;
   border-radius: 999px;
   font-size: 10px;
