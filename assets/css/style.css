@@ -666,13 +666,8 @@ main {
 .sidebar {
   position: relative;
   margin-bottom: 15px;
-  max-height: 230px;
   overflow: visible;
   transition: var(--transition-2);
-}
-
-.sidebar.active {
-  max-height: 760px;
 }
 
 .sidebar > .availability-status {
@@ -863,12 +858,15 @@ main {
 }
 
 .sidebar-info_more {
+  max-height: 0;
+  overflow: hidden;
   opacity: 0;
   visibility: hidden;
   transition: var(--transition-2);
 }
 
 .sidebar.active .sidebar-info_more {
+  max-height: 1000px;
   opacity: 1;
   visibility: visible;
 }
@@ -1172,6 +1170,80 @@ body[data-theme="light"] .theme-icon-dark {
     100% {
       box-shadow: 0 0 0 1px hsla(45, 100%, 72%, 0.18), 0 16px 32px hsla(0, 0%, 0%, 0.28);
     }
+  }
+
+  /**
+   * #PROFILE CARD (mobile layout)
+   */
+
+  .sidebar-info {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    padding-top: 6px;
+  }
+
+  .avatar-box {
+    width: clamp(88px, 26vw, 104px);
+  }
+
+  .info-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-content .name {
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .info-content .title {
+    width: auto;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .info-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 12px;
+  }
+
+  .info_more-btn {
+    top: -12px;
+    right: -8px;
+  }
+
+  .availability-status {
+    gap: 4px;
+    padding: 2px 8px;
+    font-size: 8px;
+    letter-spacing: 0.2px;
+  }
+
+  .availability-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  /**
+   * #WHAT I'M DOING (center service cards on mobile)
+   */
+
+  .service-item .service-icon-box {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .service-item .service-content-box {
+    text-align: center;
   }
 }
 
@@ -2677,12 +2749,7 @@ textarea.form-input::-webkit-resizer {
    */
 
   .sidebar {
-    max-height: 250px;
     margin-bottom: 30px;
-  }
-
-  .sidebar.active {
-    max-height: 584px;
   }
 
   .sidebar-info {
@@ -3295,6 +3362,8 @@ textarea.form-input::-webkit-resizer {
   }
 
   .sidebar-info_more {
+    max-height: none;
+    overflow: visible;
     opacity: 1;
     visibility: visible;
   }

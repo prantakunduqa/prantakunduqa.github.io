@@ -173,6 +173,9 @@ for (let i = 0; i < navigationLinks.length; i++) {
       navigationLinks[j].classList.toggle("active", isActiveLink);
     }
 
+    // Bring the active link into view within the horizontally scrollable navbar
+    this.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+
     window.scrollTo(0, 0);
   });
 }
