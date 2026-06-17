@@ -472,6 +472,18 @@ body[data-theme="light"] .info-content .title {
   box-shadow: 0 6px 14px hsla(210, 28%, 32%, 0.1), inset 0 1px 0 hsla(0, 0%, 100%, 0.7);
 }
 
+body[data-theme="light"] .availability-status {
+  color: hsl(176, 78%, 24%);
+  background: linear-gradient(120deg, hsla(160, 78%, 44%, 0.2) 0%, hsla(178, 72%, 42%, 0.16) 50%, hsla(192, 82%, 46%, 0.16) 100%);
+  border-color: hsla(174, 70%, 38%, 0.42);
+  box-shadow: 0 8px 16px hsla(180, 44%, 30%, 0.16), inset 0 1px 0 hsla(0, 0%, 100%, 0.65);
+}
+
+body[data-theme="light"] .availability-dot {
+  background: radial-gradient(circle at 35% 30%, hsl(160, 86%, 52%), hsl(178, 84%, 38%));
+  box-shadow: 0 0 8px hsla(176, 80%, 44%, 0.55), 0 0 0 2px hsla(176, 78%, 40%, 0.2);
+}
+
 body[data-theme="light"] .skills-page .skill-card-icon-box {
   width: 52px;
   height: 52px;
@@ -652,14 +664,25 @@ main {
 \*-----------------------------------*/
 
 .sidebar {
+  position: relative;
   margin-bottom: 15px;
-  max-height: 170px;
-  overflow: hidden;
+  max-height: 230px;
+  overflow: visible;
   transition: var(--transition-2);
 }
 
 .sidebar.active {
   max-height: 760px;
+}
+
+.sidebar > .availability-status {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  margin: 0;
+  z-index: 6;
 }
 
 .sidebar-info {
@@ -704,6 +727,50 @@ main {
   width: max-content;
   padding: 3px 12px;
   border-radius: 8px;
+}
+
+.availability-status {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px 3px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: var(--fw-500);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: hsl(160, 84%, 84%);
+  background: linear-gradient(120deg, hsla(160, 84%, 32%, 0.55) 0%, hsla(178, 70%, 34%, 0.42) 50%, hsla(190, 80%, 40%, 0.34) 100%);
+  border: 1px solid hsla(168, 82%, 58%, 0.5);
+  box-shadow: 0 6px 18px hsla(172, 70%, 14%, 0.45), inset 0 1px 0 hsla(160, 90%, 86%, 0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.availability-dot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, hsl(158, 95%, 72%), hsl(168, 90%, 50%));
+  box-shadow: 0 0 7px hsla(166, 90%, 58%, 0.9), 0 0 0 2px hsla(168, 85%, 52%, 0.25);
+  animation: availability-pulse 1.8s ease-out infinite;
+}
+
+@keyframes availability-pulse {
+  0% {
+    box-shadow: 0 0 0 0 hsla(166, 84%, 56%, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px hsla(166, 84%, 56%, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 hsla(166, 84%, 56%, 0);
+  }
 }
 
 .info-actions {
@@ -2609,7 +2676,7 @@ textarea.form-input::-webkit-resizer {
    */
 
   .sidebar {
-    max-height: 180px;
+    max-height: 250px;
     margin-bottom: 30px;
   }
 
@@ -3186,8 +3253,18 @@ textarea.form-input::-webkit-resizer {
     max-height: max-content;
     height: 100%;
     margin-bottom: 0;
-    padding-top: 60px;
+    padding-top: 42px;
+    overflow: visible;
     z-index: 1;
+  }
+
+  .sidebar > .availability-status {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    z-index: 5;
   }
 
   .sidebar-info {
