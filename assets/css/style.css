@@ -2249,7 +2249,8 @@ body[data-theme="light"] .certifications {
   position: relative;
   flex: 0 0 24%;
   max-width: 124px;
-  height: 100%;
+  align-self: stretch;
+  height: auto;
   border-radius: 0;
   overflow: hidden;
 }
@@ -2412,6 +2413,8 @@ body[data-theme="light"] .certifications {
   display: flex;
   align-items: center;
   gap: 7px;
+  min-width: 0;
+  flex-shrink: 0;
 }
 
 .blog-author-avatar {
@@ -2427,6 +2430,7 @@ body[data-theme="light"] .certifications {
   font-size: var(--fs-8);
   font-weight: var(--fw-500);
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .blog-author-info time {
