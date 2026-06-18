@@ -743,3 +743,115 @@ function updateTestimonials() {
 
 updateTestimonials();
 window.addEventListener("resize", updateTestimonials);
+
+// ===================================================================
+// Auto-load the Medium article preview image for each blog card.
+// You only set the Medium article link in the HTML — the banner image
+// is pulled automatically from your Medium RSS feed (via the CORS-
+// friendly rss2json service). The image in the HTML stays as a
+// fallback if the post can't be found (e.g. very old posts).
+// ===================================================================
+(function loadMediumPreviewImages() {
+  const blogLinks = document.querySelectorAll(
+    ".blog-post-item > a[href*='medium.com/@']"
+  );
+  if (!blogLinks.length) return;
+
+  // Extract the Medium handle, e.g. "@pritamkundu.pk5", from an article URL.
+  const getHandle = function (url) {
+    const match = url.match(/medium\.com\/(@[^/]+)/i);
+    return match ? match[1] : null;
+  };
+
+  // Extract the unique trailing post id, e.g. "8232157e7f63", from a URL.
+  const getPostId = function (url) {
+    const match = url.match(/-([a-f0-9]{8,})(?:\?|#|$)/i);
+    return match ? match[1].toLowerCase() : null;
+  };
+
+  // Pull the first image out of an RSS item's HTML content.
+  const getFirstImage = function (item) {
+    if (item.thumbnail) return item.thumbnail;
+    const html = (item.content || "") + (item.description || "");
+    const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+    return match ? match[1] : null;
+  };
+
+  const setBanner = function (img, src) {
+    const preloader = new Image();
+    preloader.onload = function () {
+      img.src = src;
+    };
+    preloader.src = src;
+  };
+
+  // Format "2025-06-15 10:30:00" (Medium pubDate) -> "Jun 15, 2025".
+  const formatDate = function (pubDate) {
+    const date = new Date(pubDate.replace(" ", "T") + "Z");
+    if (isNaN(date.getTime())) return null;
+    const months = [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+    ];
+    return (
+      months[date.getUTCMonth()] +
+      " " +
+      date.getUTCDate() +
+      ", " +
+      date.getUTCFullYear()
+    );
+  };
+
+  const setDate = function (timeEl, pubDate) {
+    if (!timeEl || !pubDate) return;
+    const label = formatDate(pubDate);
+    if (!label) return;
+    timeEl.textContent = label;
+    timeEl.setAttribute("datetime", pubDate.split(" ")[0]);
+  };
+
+  // Group cards by author handle so we fetch each feed only once.
+  const cardsByHandle = {};
+  blogLinks.forEach(function (link) {
+    const url = link.getAttribute("href");
+    const img = link.querySelector(".blog-banner-box img");
+    const timeEl = link.querySelector(".blog-author-info time");
+    const handle = getHandle(url || "");
+    const postId = getPostId(url || "");
+    if (!url || !img || !handle || !postId) return;
+    (cardsByHandle[handle] = cardsByHandle[handle] || []).push({
+      img,
+      timeEl,
+      postId,
+    });
+  });
+
+  Object.keys(cardsByHandle).forEach(function (handle) {
+    const feedUrl = "https://medium.com/feed/" + handle;
+    const apiUrl =
+      "https://api.rss2json.com/v1/api.json?rss_url=" +
+      encodeURIComponent(feedUrl);
+
+    fetch(apiUrl)
+      .then(function (response) {
+        if (!response.ok) throw new Error("Feed error");
+        return response.json();
+      })
+      .then(function (data) {
+        const items = (data && data.items) || [];
+        cardsByHandle[handle].forEach(function (card) {
+          const item = items.find(function (it) {
+            return (it.link || "").toLowerCase().indexOf(card.postId) !== -1;
+          });
+          if (item) {
+            const image = getFirstImage(item);
+            if (image) setBanner(card.img, image);
+            setDate(card.timeEl, item.pubDate);
+          }
+        });
+      })
+      .catch(function () {
+        /* keep the fallback images already set in the HTML */
+      });
+  });
+})();

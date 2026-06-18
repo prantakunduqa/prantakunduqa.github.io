@@ -190,9 +190,9 @@
               <button class="navbar-link" data-nav-link>Recommendations</button>
             </li>
 
-            <!-- <li class="navbar-item">
+            <li class="navbar-item">
               <button class="navbar-link" data-nav-link>Blog</button>
-            </li> -->
+            </li>
 
             <li class="navbar-item">
               <button class="navbar-link" data-nav-link>Contact</button>
@@ -1377,7 +1377,16 @@
         </article>
         <!-- ===================== #BLOG ======================= -->
 
-        <!-- BLOG SECTION COMMENTED OUT
+        <!--
+          HOW TO PUBLISH A NEW BLOG POST
+          1. Copy one full <li class="blog-post-item"> ... </li> block below and paste it
+             as the FIRST card (newest on top).
+          2. Set your Medium article URL in the <a href="..."> (keep target & rel attributes) —
+             the whole card opens that post in a new tab.
+          3. Update: the title, the excerpt, the author <time>, the "min read" value
+             and the comment count. (The banner image loads automatically from Medium.)
+          Your image & name stay the same on every card.
+        -->
         <article class="blog" data-page="blog">
           <header>
             <h2 class="h2 article-title">Blog</h2>
@@ -1385,191 +1394,71 @@
 
           <section class="blog-posts">
             <ul class="blog-posts-list">
+              <!-- ===== BLOG CARD TEMPLATE — copy this whole <li> for each new post ===== -->
               <li class="blog-post-item">
-                <a href="#">
+                <a
+                  href="https://medium.com/@pritamkundu.pk5/what-should-i-automate-today-a-5-minute-decision-checklist-for-qa-8232157e7f63"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Read this post on Medium"
+                >
                   <figure class="blog-banner-box">
                     <img
                       src="./assets/images/blog-1.jpg"
-                      alt="Top programming trends in 2025"
+                      alt="What should I automate today? A 5-minute decision checklist for QA"
                       loading="lazy"
                     />
                   </figure>
 
                   <div class="blog-content">
                     <div class="blog-meta">
-                      <p class="blog-category">Software Development</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2025-02-23">Feb 23, 2025</time>
+                      <ion-icon name="logo-medium" class="blog-source-icon"></ion-icon>
+                      <p class="blog-source">medium.com</p>
                     </div>
 
                     <h3 class="h3 blog-item-title">
-                      Top programming trends in 2025
+                      What should I automate today? A 5-minute decision
+                      checklist for QA
                     </h3>
 
                     <p class="blog-text">
-                      Exploring the latest advancements in software development
-                      and emerging technologies.
+                      A quick, practical checklist to decide what's worth
+                      automating today — and what to skip — so you invest your
+                      QA effort where it pays off.
                     </p>
-                  </div>
-                </a>
-              </li>
 
-              <li class="blog-post-item">
-                <a href="#">
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-2.jpg"
-                      alt="Best practices for scalable APIs"
-                      loading="lazy"
-                    />
-                  </figure>
+                    <div class="blog-footer">
+                      <div class="blog-author">
+                        <img
+                          src="./assets/images/my-avatar.png"
+                          alt="Pranta Kundu"
+                          class="blog-author-avatar"
+                          loading="lazy"
+                        />
+                        <div class="blog-author-info">
+                          <p class="blog-author-name">Pranta Kundu</p>
+                          <time datetime="2025-06-15">Jun 15, 2025</time>
+                        </div>
+                      </div>
 
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Software Development</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2025-02-23">Feb 23, 2025</time>
+                      <ul class="blog-stats">
+                        <li class="blog-stat" title="Read time">
+                          <ion-icon name="book-outline"></ion-icon>
+                          <span>6 min read</span>
+                        </li>
+                        <li class="blog-stat" title="Comments">
+                          <ion-icon name="chatbubble-outline"></ion-icon>
+                          <span>12</span>
+                        </li>
+                      </ul>
                     </div>
-
-                    <h3 class="h3 blog-item-title">
-                      Best practices for scalable APIs
-                    </h3>
-
-                    <p class="blog-text">
-                      Tips for designing robust and efficient APIs for modern
-                      applications.
-                    </p>
                   </div>
                 </a>
               </li>
-
-              <li class="blog-post-item">
-                <a href="#">
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-3.jpg"
-                      alt="Cloud computing trends"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Software Development</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2025-02-23">Feb 23, 2025</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">Cloud computing trends</h3>
-
-                    <p class="blog-text">
-                      How cloud technologies are shaping the future of software
-                      development.
-                    </p>
-                  </div>
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a href="#">
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-4.jpg"
-                      alt="Building cross-platform mobile apps"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Software Development</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2025-02-23">Feb 23, 2025</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">
-                      Building cross-platform mobile apps
-                    </h3>
-
-                    <p class="blog-text">
-                      A guide to using frameworks like React Native for mobile
-                      development.
-                    </p>
-                  </div>
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a href="#">
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-5.jpg"
-                      alt="The importance of clean code"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Software Development</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2025-02-23">Feb 23, 2025</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">
-                      The importance of clean code
-                    </h3>
-
-                    <p class="blog-text">
-                      Why writing maintainable and readable code is critical for
-                      long-term success.
-                    </p>
-                  </div>
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a href="#">
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-6.jpg"
-                      alt="DevOps for developers"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Software Development</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2025-02-23">Feb 23, 2025</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">DevOps for developers</h3>
-
-                    <p class="blog-text">
-                      Integrating DevOps practices into the software development
-                      lifecycle.
-                    </p>
-                  </div>
-                </a>
-              </li>
+              <!-- ===== END BLOG CARD TEMPLATE ===== -->
             </ul>
           </section>
         </article>
-        END BLOG SECTION -->
         <!-- ===================== #TESTIMONIALS ============ -->
 
         <article class="recommendations" data-page="recommendations">
