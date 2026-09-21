@@ -1,0 +1,14 @@
+{
+  "name": "prantakunduqa-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "lint": "node --check server.js assets/js/script.js",
+    "build": "echo 'Build complete'",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
